@@ -1,0 +1,21 @@
+﻿## Build results
+[Bb]in/
+[Oo]bj/
+build_output.txt
+
+## Visual Studio & JetBrains Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.rsuser
+
+## OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

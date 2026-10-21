@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Automation Tools Workspace</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="AvailableTools" xml:space="preserve">
+    <value>Available Tools</value>
+  </data>
+  <data name="SampleToolName" xml:space="preserve">
+    <value>Sample Tool</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to the Automation Tools Workspace. Select a tool from the sidebar to begin.</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result:</value>
+  </data>
+  <data name="InputConfiguration" xml:space="preserve">
+    <value>Input Configuration</value>
+  </data>
+  <data name="InputHint" xml:space="preserve">
+    <value>Enter some text to process...</value>
+  </data>
+  <data name="DataConverterToolName" xml:space="preserve">
+    <value>Data Converter</value>
+  </data>
+  <data name="InputFormatLabel" xml:space="preserve">
+    <value>Input Format</value>
+  </data>
+  <data name="FormatBinary" xml:space="preserve">
+    <value>Binary</value>
+  </data>
+  <data name="FormatDecimal" xml:space="preserve">
+    <value>Decimal</value>
+  </data>
+  <data name="FormatHexadecimal" xml:space="preserve">
+    <value>Hexadecimal</value>
+  </data>
+  <data name="FormatFloat32" xml:space="preserve">
+    <value>Float (IEEE 754)</value>
+  </data>
+  <data name="BinaryLabel" xml:space="preserve">
+    <value>Binary (32-bit):</value>
+  </data>
+  <data name="DecimalLabel" xml:space="preserve">
+    <value>Decimal (Signed 32-bit):</value>
+  </data>
+  <data name="HexLabel" xml:space="preserve">
+    <value>Hexadecimal:</value>
+  </data>
+  <data name="FloatLabel" xml:space="preserve">
+    <value>Float (IEEE 754):</value>
+  </data>
+  <data name="InvalidCharWarning" xml:space="preserve">
+    <value>Invalid character blocked for chosen format!</value>
+  </data>
+  <data name="PingToolName" xml:space="preserve">
+    <value>Network Ping</value>
+  </data>
+  <data name="PingInputHint" xml:space="preserve">
+    <value>Target IP or Range (e.g. 192.168.1.1-50)</value>
+  </data>
+  <data name="StartScan" xml:space="preserve">
+    <value>Start Scan</value>
+  </data>
+  <data name="StopScan" xml:space="preserve">
+    <value>Stop Scan</value>
+  </data>
+  <data name="PingWarningMessage" xml:space="preserve">
+    <value>Limit is 10,000 parallel IPs.</value>
+  </data>
+  <data name="InvalidIpFormatWarning" xml:space="preserve">
+    <value>Invalid IP format. Please use a format like 192.168.1.1 or 192.168.1.1-50.</value>
+  </data>
+  <data name="PortTesterName" xml:space="preserve">
+    <value>Port Tester</value>
+  </data>
+  <data name="PortTesterIpHint" xml:space="preserve">
+    <value>Target IP or Range (e.g. 192.168.1.1-50)</value>
+  </data>
+  <data name="PortTesterPortsHint" xml:space="preserve">
+    <value>Target Ports (e.g. 80, 443, 502)</value>
+  </data>
+  <data name="PortTesterWarningMessage" xml:space="preserve">
+    <value>TCP Timeout is set to 1500ms.</value>
+  </data>
+  <data name="InvalidPortFormatWarning" xml:space="preserve">
+    <value>Invalid port format. Please use a format like 80, 443, 502-505.</value>
+  </data>
+  <data name="ModbusServerName" xml:space="preserve">
+    <value>Modbus Server</value>
+  </data>
+  <data name="ModbusRegisterTypeHint" xml:space="preserve">
+    <value>Register Type</value>
+  </data>
+  <data name="ModbusStartAddressHint" xml:space="preserve">
+    <value>Start Address</value>
+  </data>
+  <data name="ModbusRegisterCountHint" xml:space="preserve">
+    <value>Count (max 1000)</value>
+  </data>
+  <data name="ModbusClientRegisterCountHint" xml:space="preserve">
+    <value>Count (max 125)</value>
+  </data>
+  <data name="ModbusAddressHeader" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ModbusValueHeader" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ModbusStructuredPopulateTooltip" xml:space="preserve">
+    <value>Write address number as the value</value>
+  </data>
+  <data name="ModbusRandomPopulateTooltip" xml:space="preserve">
+    <value>Fill registers with random values</value>
+  </data>
+  <data name="ModbusClearPopulateTooltip" xml:space="preserve">
+    <value>Reset all registers to 0</value>
+  </data>
+  <data name="StartServer" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="StopServer" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="ModbusClientName" xml:space="preserve">
+    <value>Modbus Client</value>
+  </data>
+  <data name="ModbusIpAddressHint" xml:space="preserve">
+    <value>Target IP Address</value>
+  </data>
+  <data name="ConnectClient" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="DisconnectClient" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="ReadRegisters" xml:space="preserve">
+    <value>Read Data</value>
+  </data>
+  <data name="ReadError" xml:space="preserve">
+    <value>Read failed. Ensure connection is active.</value>
+  </data>
+  <data name="ModbusClientReadOnlyError" xml:space="preserve">
+    <value>Cannot write to Input Registers or Discrete Inputs (Read-Only).</value>
+  </data>
+  <data name="ModbusClientCoilError" xml:space="preserve">
+    <value>Invalid value for Coil. Must be 0 or 1.</value>
+  </data>
+  <data name="ModbusClientHoldingError" xml:space="preserve">
+    <value>Invalid value for Holding Register. Must be a valid 16-bit signed integer.</value>
+  </data>
+  <data name="ModbusClientWriteFailed" xml:space="preserve">
+    <value>Write failed:</value>
+  </data>
+  <data name="InvalidIpAddress" xml:space="preserve">
+    <value>Invalid IP Address</value>
+  </data>
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Connection Error</value>
+  </data>
+  <data name="ModbusDebug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="ModbusClearLogs" xml:space="preserve">
+    <value>Clear Logs</value>
+  </data>
+  <data name="ModbusPayload" xml:space="preserve">
+    <value>Payload</value>
+  </data>
+  <data name="ModbusSlaveIdHint" xml:space="preserve">
+    <value>Slave ID</value>
+  </data>
+  <data name="ModbusDisplayFormatHint" xml:space="preserve">
+    <value>Display Format</value>
+  </data>
+  <data name="ModbusPollingDelayHint" xml:space="preserve">
+    <value>Polling Delay (ms)</value>
+  </data>
+  <data name="ModbusEnablePolling" xml:space="preserve">
+    <value>Auto Poll</value>
+  </data>
+  <data name="ModbusConnectionTheme" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="ModbusServerTheme" xml:space="preserve">
+    <value>Server Configuration</value>
+  </data>
+  <data name="ModbusDataConfigTheme" xml:space="preserve">
+    <value>Data Configuration</value>
+  </data>
+  <data name="ModbusMemoryMapTheme" xml:space="preserve">
+    <value>Memory Map</value>
+  </data>
+  <data name="AddWorkspaceTooltip" xml:space="preserve">
+    <value>Add workspace</value>
+  </data>
+  <data name="ModbusWordOrderHint" xml:space="preserve">
+    <value>Word Order</value>
+  </data>
+  <data name="ModbusNumericFormatHint" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="LoadingMessage" xml:space="preserve">
+    <value>Loading workspace...</value>
+  </data>
+  <data name="SavingMessage" xml:space="preserve">
+    <value>Saving workspace...</value>
+  </data>
+  <data name="ChartingToolName" xml:space="preserve">
+    <value>Live Charting</value>
+  </data>
+  <data name="AddDataPoint" xml:space="preserve">
+    <value>Add Data</value>
+  </data>
+  <data name="ClearChart" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="PlcIoScalingToolName" xml:space="preserve">
+    <value>PLC I/O Scaling</value>
+  </data>
+  <data name="PlcIoSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="PlcIoPresetHint" xml:space="preserve">
+    <value>PLC Preset</value>
+  </data>
+  <data name="PlcIoSignalTypeHint" xml:space="preserve">
+    <value>Electrical Signal</value>
+  </data>
+  <data name="PlcIoPlcMinHint" xml:space="preserve">
+    <value>PLC Min Value</value>
+  </data>
+  <data name="PlcIoPlcMaxHint" xml:space="preserve">
+    <value>PLC Max Value</value>
+  </data>
+  <data name="PlcIoEngMinHint" xml:space="preserve">
+    <value>Eng. Min Value</value>
+  </data>
+  <data name="PlcIoEngMaxHint" xml:space="preserve">
+    <value>Eng. Max Value</value>
+  </data>
+  <data name="PlcIoLiveConversion" xml:space="preserve">
+    <value>Live Conversion</value>
+  </data>
+  <data name="PlcIoRawValueHint" xml:space="preserve">
+    <value>Raw PLC Value</value>
+  </data>
+  <data name="PlcIoEngineeringValueHint" xml:space="preserve">
+    <value>Engineering Value</value>
+  </data>
+  <data name="OpcUaClientToolName" xml:space="preserve">
+    <value>OPC UA Client</value>
+  </data>
+  <data name="OpcUaEndpointHint" xml:space="preserve"><value>Endpoint URL (opc.tcp://...)</value></data>
+  <data name="OpcUaConnect" xml:space="preserve"><value>Connect</value></data>
+  <data name="OpcUaDisconnect" xml:space="preserve"><value>Disconnect</value></data>
+  <data name="OpcUaConnecting" xml:space="preserve"><value>Connecting...</value></data>
+  <data name="OpcUaConnected" xml:space="preserve"><value>Connected</value></data>
+  <data name="OpcUaDisconnected" xml:space="preserve"><value>Disconnected</value></data>
+  <data name="OpcUaConnectionFailed" xml:space="preserve"><value>Connection Failed</value></data>
+  <data name="OpcUaServerBrowser" xml:space="preserve"><value>Server Browser</value></data>
+  <data name="OpcUaWatchlistTitle" xml:space="preserve"><value>Watchlist (Drag to Chart)</value></data>
+  <data name="OpcUaColumnName" xml:space="preserve"><value>Name</value></data>
+  <data name="OpcUaColumnValue" xml:space="preserve"><value>Value</value></data>
+  <data name="OpcUaColumnType" xml:space="preserve"><value>Type</value></data>
+  <data name="OpcUaColumnTime" xml:space="preserve"><value>Time</value></data>
+  <data name="OpcUaColumnWriteValue" xml:space="preserve"><value>Write Value</value></data>
+  <data name="OpcUaColumnAction" xml:space="preserve"><value>Action</value></data>
+</root>

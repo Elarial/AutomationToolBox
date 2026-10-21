@@ -1,0 +1,162 @@
+<UserControl x:Class="AutomationTools.Views.OpcUaClientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:services="clr-namespace:AutomationTools.Services"
+             xmlns:vm="clr-namespace:AutomationTools.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:OpcUaClientViewModel}">
+
+    <Grid Background="{DynamicResource MaterialDesignPaper}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <!-- Connection Settings -->
+        <Border Grid.Row="1" Background="{DynamicResource MaterialDesignCardBackground}" Margin="16" Padding="16" CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0" Text="{Binding EndpointUrl, UpdateSourceTrigger=PropertyChanged}" 
+                         materialDesign:HintAssist.Hint="{Binding [OpcUaEndpointHint], Source={x:Static services:TranslationSource.Instance}}">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsConnected}" Value="True">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <Button Grid.Column="2" Command="{Binding ConnectCommand}" Width="120">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                            <Setter Property="Content" Value="{Binding [OpcUaConnect], Source={x:Static services:TranslationSource.Instance}}"/>
+                            <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsConnected}" Value="True">
+                                    <Setter Property="Content" Value="{Binding [OpcUaDisconnect], Source={x:Static services:TranslationSource.Instance}}"/>
+                                    <Setter Property="Background" Value="#EF5350"/>
+                                    <Setter Property="BorderBrush" Value="#EF5350"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="2" Margin="16,0,16,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Address Space Browser -->
+            <Border Grid.Column="0" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="8" Padding="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding [OpcUaServerBrowser], Source={x:Static services:TranslationSource.Instance}}" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                    
+                    <TreeView Grid.Row="1" ItemsSource="{Binding ServerNodes}">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                <StackPanel Orientation="Horizontal" Margin="0,2">
+                                    <materialDesign:PackIcon Kind="FolderOutline" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{DynamicResource PrimaryHueMidBrush}"/>
+                                    <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center"/>
+                                    <Button Command="{Binding DataContext.AddToWatchlistCommand, RelativeSource={RelativeSource AncestorType=TreeView}}" 
+                                            CommandParameter="{Binding}" 
+                                            Style="{StaticResource MaterialDesignToolButton}" 
+                                            Width="24" Height="24" Padding="0" Margin="8,0,0,0"
+                                            ToolTip="Add to Watchlist">
+                                        <materialDesign:PackIcon Kind="EyePlusOutline" Width="16" Height="16"/>
+                                    </Button>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem" BasedOn="{StaticResource MaterialDesignTreeViewItem}">
+                                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                    </TreeView>
+                </Grid>
+            </Border>
+
+            <!-- Watchlist -->
+            <Border Grid.Column="2" Background="{DynamicResource MaterialDesignCardBackground}" CornerRadius="8" Padding="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,8">
+                        <TextBlock Text="{Binding [OpcUaWatchlistTitle], Source={x:Static services:TranslationSource.Instance}}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding ConnectionError}" Foreground="#EF5350" Margin="16,0,0,0" VerticalAlignment="Center" MaxWidth="300" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+
+                    <DataGrid Grid.Row="1" ItemsSource="{Binding Watchlist}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                              PreviewMouseLeftButtonDown="DataGrid_PreviewMouseLeftButtonDown" PreviewMouseMove="DataGrid_PreviewMouseMove">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{Binding [OpcUaColumnName], Source={x:Static services:TranslationSource.Instance}}" Binding="{Binding DisplayName}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="{Binding [OpcUaColumnValue], Source={x:Static services:TranslationSource.Instance}}" Binding="{Binding Value}" IsReadOnly="True" Width="80"/>
+                            <DataGridTextColumn Header="{Binding [OpcUaColumnType], Source={x:Static services:TranslationSource.Instance}}" Binding="{Binding DataType}" IsReadOnly="True" Width="80"/>
+                            <DataGridTextColumn Header="{Binding [OpcUaColumnTime], Source={x:Static services:TranslationSource.Instance}}" Binding="{Binding Timestamp}" IsReadOnly="True" Width="100"/>
+                            
+                            <DataGridTemplateColumn Header="{Binding [OpcUaColumnWriteValue], Source={x:Static services:TranslationSource.Instance}}" Width="120">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBox Grid.Column="0" Text="{Binding WriteInput, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                                            <Button Grid.Column="1" Command="{Binding DataContext.WriteValueCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                                    CommandParameter="{Binding}"
+                                                    Style="{StaticResource MaterialDesignToolButton}" Width="24" Height="24" Padding="0">
+                                                <materialDesign:PackIcon Kind="Send" Width="16" Height="16"/>
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{Binding [OpcUaColumnAction], Source={x:Static services:TranslationSource.Instance}}" Width="60">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Command="{Binding DataContext.RemoveFromWatchlistCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                                CommandParameter="{Binding}"
+                                                Style="{StaticResource MaterialDesignToolButton}" Width="24" Height="24" Padding="0" Foreground="#EF5350">
+                                            <materialDesign:PackIcon Kind="DeleteOutline" Width="16" Height="16"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

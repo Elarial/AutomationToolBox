@@ -1,0 +1,54 @@
+<Application x:Class="AutomationTools.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:AutomationTools.ViewModels"
+             xmlns:views="clr-namespace:AutomationTools.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="Amber" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <DataTemplate DataType="{x:Type vm:DataConverterViewModel}">
+                <views:DataConverterView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:PingToolViewModel}">
+                <views:PingToolView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:PortTesterViewModel}">
+                <views:PortTesterView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ModbusServerViewModel}">
+                <views:ModbusServerView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ModbusClientViewModel}">
+                <views:ModbusClientView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ChartingToolViewModel}">
+                <views:ChartingToolView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:PlcIoScalingToolViewModel}">
+                <views:PlcIoScalingToolView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:OpcUaClientViewModel}">
+                <views:OpcUaClientView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ToolWrapperViewModel}">
+                <views:ToolContainerView />
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
